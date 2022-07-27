@@ -12,7 +12,7 @@ my_api_secret = "sZAEQi4SvFZ9DgUqtRJuay6THNNy6fpLPUVlKE8P47xjs6j37Y"
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
-search_query = "#covid19 -filter:retweets"
+search_query = "#covid19 -filter:tweets"
 # get tweets from the API
 tweets = tw.Cursor(api.search_tweets,
               q=search_query,
@@ -46,5 +46,6 @@ for tweet in tweets_copy:
     tweets_df = tweets_df.reset_index(drop=True)
 
 # show the dataframe
+print(tweets_df)
 tweets_df.head()
-#print(tweets_df)
+print(tweets_df.head())

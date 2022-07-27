@@ -1,4 +1,4 @@
-'''
+
 import tweepy
 #Accessing twitter api
 access_token = "1551145058258153473-utDfnXHO0FX3N1RYKP57AeldcDXZSm"
@@ -26,5 +26,5 @@ try:
 
 except:
     print("Error")
-'''
+
 

@@ -11,3 +11,16 @@ my_api_secret = "sZAEQi4SvFZ9DgUqtRJuay6THNNy6fpLPUVlKE8P47xjs6j37Y"
 # authenticate
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
+
+# get tweets from the API
+tweets = tw.Cursor(api.search,
+              q=search_query,
+              lang="en",
+              since="2020-09-16").items(50)
+
+# store the API responses in a list
+tweets_copy = []
+for tweet in tweets:
+    tweets_copy.append(tweet)
+    
+print("Total Tweets fetched:", len(tweets_copy))

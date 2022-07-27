@@ -52,3 +52,4 @@ for tweet in tweets_copy:
 
 # show the dataframe
 tweets_df.head()
+print(tweets_df)

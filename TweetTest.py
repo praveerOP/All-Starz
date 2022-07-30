@@ -13,10 +13,9 @@ auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
 
-phone_list=["#Electronics -filter:tweets","#Samsung -filter:tweets","#Xiaomi -filter:tweets",
-"#MiNote -filter:tweets"]#VIVO -filter:tweets"]
+phone_list=["#MKBHD"]
 for i in phone_list:
-    search_query = "#iPhone"
+    search_query = i
 # get tweets from the API
     tweets = tw.Cursor(api.search_tweets,
                 q=search_query,

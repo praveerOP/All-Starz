@@ -12,17 +12,22 @@ my_api_secret = "sZAEQi4SvFZ9DgUqtRJuay6THNNy6fpLPUVlKE8P47xjs6j37Y"
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
-search_query = "#SamsungGalaxy -filter:tweets"
+
+phone_list=["#SmartPhones -filter:tweets","#SamsungGalaxy -filter:tweets","#Xiaomi -filter:tweets","#MiNote -filter:tweets",
+"#SmartPhones -filter:tweets","#VIVO -filter:tweets"]
+for i in phone_list:
+    search_query = i
 # get tweets from the API
-tweets = tw.Cursor(api.search_tweets,
-              q=search_query,
-              lang="en",
-              since="2020-09-16").items(50)
+    tweets = tw.Cursor(api.search_tweets,
+                q=search_query,
+                lang="en",
+                since="2020-09-16").items(50)
 
 # store the API responses in a list
-tweets_copy = []
-for tweet in tweets:
-    tweets_copy.append(tweet)
+
+    tweets_copy = []
+    for tweet in tweets:
+        tweets_copy.append(tweet)
     
 print("Total Tweets fetched:", len(tweets_copy))
 

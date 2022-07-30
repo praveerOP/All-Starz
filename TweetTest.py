@@ -20,8 +20,8 @@ for i in phone_list:
 # get tweets from the API
     tweets = tw.Cursor(api.search_tweets,
                 q=search_query,
-                lang="en",
-                since="2020-09-16").items(50)
+                lang="en"
+                '''since="2020-09-16"''').items(50)
 
 # store the API responses in a list
 
@@ -51,6 +51,8 @@ for tweet in tweets_copy:
     tweets_df = tweets_df.reset_index(drop=True)
 
 # show the dataframe
-print(tweets_df)
-tweets_df.head()
+#print(tweets_df)
+#tweets_df.head()
 
+tweet_lis=tweets_df.values.tolist()
+print (tweet_lis)

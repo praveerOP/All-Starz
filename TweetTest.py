@@ -71,5 +71,5 @@ for item in tweets_list:
 
 #print (tweets_list)
 
-frequency=dict(sorted(frequency.items(), key=lambda item: item[1]), reverse=True)
+frequency=dict(sorted(frequency.items(), key=lambda item: item[1],reverse=True))
 print(frequency)

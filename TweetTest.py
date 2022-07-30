@@ -21,7 +21,7 @@ for i in phone_list:
     tweets = tw.Cursor(api.search_tweets,
                 q=search_query,
                 lang="en",
-                since="2020-09-16").items(100)
+                since="2020-09-16").items(50)
 
 # store the API responses in a list
 

@@ -78,27 +78,19 @@ def twitter():
     # fet=[]
     # possible_list=["Samsung Galaxy","Oppo"]
     # tweet_list=[]
-    # print(tweets_desc)
+    print(tweets_desc)
     # print("-----------------------------------------")
     # print("-----------------------------------------")
     print(tweets_newlist)
-    given_list=['realme C11 2021 (Cool Grey, 64 GB)', 'realme C11 2021 (Cool Grey, 32 GB)', 
-    'SAMSUNG Galaxy F22 (Denim Black, 64 GB)', 'SAMSUNG Galaxy F22 (Denim Blue, 64 GB)', 'realme C31 (Dark Green, 32 GB)', 
-    'realme C31 (Light Silver, 32 GB)', 'POCO C31 (Royal Blue, 64 GB)', 'realme C31 (Dark Green, 64 GB)', 
-    'Infinix HOT 12 Play (Racing Black, 64 GB)', 'Infinix HOT 12 Play (Horizon Blue, 64 GB)', 'Infinix HOT 12 Play (Daylight Green, 64 GB)', 
-    'realme C31 (Light Silver, 64 GB)', 'POCO C31 (Royal Blue, 32 GB)', 'realme C11 2021 (Cool Blue, 32 GB)', 
-    'POCO C31 (Shadow Gray, 64 GB)', 'realme 9 (Sunburst Gold, 128 GB)', 'Infinix Note 12 (Jewel Blue, 64 GB)', 
-    'Infinix Hot 11 2022 (Sunset Gold, 64 GB)', 'SAMSUNG Galaxy F13 (Waterfall Blue, 64 GB)', 
-    'SAMSUNG Galaxy F13 (Sunrise Copper, 64 GB)', 'realme C20 (Cool Grey, 32 GB)', 'Infinix Note 12 (Force Black, 64 GB)', 
-    'POCO M4 Pro (Power Black, 64 GB)', 'realme 9 (Stargaze White, 128 GB)', 'OPPO K10 (Black Carbon, 128 GB)', 
-    'REDMI 9i Sport (Coral Green, 64 GB)', 'OPPO K10 (Blue Flame, 128 GB)', 'realme C20 (Cool Blue, 32 GB)', 
-    'SAMSUNG Galaxy F13 (Nightsky Green, 64 GB)', 'vivo T1X (Space Blue, 128 GB)', 'vivo T1X (Gravity Black, 64 GB)', 
-    'vivo T1X (Space Blue, 128 GB)', 'vivo T1X (Gravity Black, 128 GB)', 'REDMI 10 (Pacific Blue, 64 GB)',
-     'REDMI 10 (Midnight Black, 64 GB)', 'MOTOROLA g31 (Baby Blue, 64 GB)', 'REDMI 9i Sport (Carbon Black, 64 GB)', 
-     'POCO M4 Pro (Cool Blue, 64 GB)', 'REDMI Note 10 Pro (Vintage Bronze, 128 GB)', 'vivo T1X (Space Blue, 64 GB)', 
-     'realme C21Y (Cross Black, 64 GB)', 'REDMI Note 10T 5G (Metallic Blue, 64 GB)', 'Infinix Hot 11 2022 (Aurora Green, 64 GB)', 
-     'OPPO Reno8 5G (Shimmer Gold, 128 GB)', 'OPPO Reno8 5G (Shimmer Black, 128 GB)', 'realme 9 (Stargaze White, 128 GB)', 
-     'REDMI Note 10 Pro (Dark Night, 128 GB)', 'POCO M4 5G (Power Black, 64 GB)']    
+    given_list=['realme C11 2021 ', 'realme C11 2021 ', 
+    'SAMSUNG Galaxy F22 ', 'SAMSUNG Galaxy F22 ', 'realme C31 ', 'realme C31 ', 'POCO C31 ', 'realme C31 ', 
+    'Infinix HOT 12 Play ', 'Infinix HOT 12 Play ', 'Infinix HOT 12 Play ', 'realme C31 ', 'POCO C31 ', 'realme C11 2021 ', 
+    'POCO C31 ', 'realme 9', 'Infinix Note 12 ', 'Infinix Hot 11 2022 ', 'SAMSUNG Galaxy F13 ', 
+    'SAMSUNG Galaxy F13 ', 'realme C20 ', 'Infinix Note 12 ', 'POCO M4 Pro ', 'realme 9 ', 'OPPO K10 ', 
+    'REDMI 9i Sport ', 'realme C20', 'SAMSUNG Galaxy F13 ', 'vivo T1X ', 'vivo T1X ', 
+    'vivo T1X ', 'vivo T1X ', 'REDMI 10 ','REDMI 10 ', 'MOTOROLA g31 ', 'REDMI 9i Sport ', 'POCO M4 Pro ',
+    'REDMI Note 10 Pro ', 'vivo T1X ', 'realme C21Y ', 'REDMI Note 10T 5G ',
+    'Infinix Hot 11 2022 ', 'OPPO Reno8 5G ', 'OPPO Reno8 5G ', 'realme 9 ', 'REDMI Note 10 Pro ', 'POCO M4 5G ']    
 
 twitter();
 

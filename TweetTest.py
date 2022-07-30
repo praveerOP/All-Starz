@@ -67,4 +67,10 @@ def twitter():
     frequency=dict(sorted(frequency.items(), key=lambda item: item[1],reverse=True))
     print(frequency)
     return frequency
+    #possible extractable feature 
+    fet=[]
+    possible_list=["Samsung Galaxy","Oppo"]
+    tweet_list=[]
+
 twitter();
+

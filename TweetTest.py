@@ -13,15 +13,15 @@ auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
 
-phone_list=["#SmartPhones -filter:tweets","#Electronics -filter:tweets","#SamsungGalaxy -filter:tweets","#Xiaomi -filter:tweets",
+phone_list=["#Electronics -filter:tweets","#Samsung -filter:tweets","#Xiaomi -filter:tweets",
 "#MiNote -filter:tweets"]#VIVO -filter:tweets"]
 for i in phone_list:
-    search_query = i
+    search_query = "#iPhone"
 # get tweets from the API
     tweets = tw.Cursor(api.search_tweets,
                 q=search_query,
-                lang="en"
-                '''since="2020-09-16"''').items(50)
+                lang="en",
+                since="2020-09-16").items(50)
 
 # store the API responses in a list
 
@@ -30,7 +30,6 @@ for i in phone_list:
         tweets_copy.append(tweet)
     
 print("Total Tweets fetched:", len(tweets_copy))
-
 import pandas as pd
 
 # intialize the dataframe
@@ -51,8 +50,12 @@ for tweet in tweets_copy:
     tweets_df = tweets_df.reset_index(drop=True)
 
 # show the dataframe
-#print(tweets_df)
-#tweets_df.head()
-
-tweet_lis=tweets_df.values.tolist()
-print (tweet_lis)
+# print(tweets_df)
+print(tweets_df.head())
+tweets_list = []
+print("test ",tweets_df.values[0])
+# for i in tweets_df.values[0]:
+#     print(tweets_list.extend(i[0]))
+# tweets_list = list(set(tweets_list))
+# # # tweet_lis=tweets_df.values.tolist()
+# print (tweets_list)

@@ -33,8 +33,7 @@ function App() {
     };
     } 
   )
-  
-  
+    
   return (
     <div classname = "page">
       {/* <div className="navbar">Navbar</div> */}

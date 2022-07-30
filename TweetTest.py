@@ -1,6 +1,6 @@
 # import tweepy
 import tweepy as tw
-
+import pandas as pd
 # your Twitter API key and API secret
 access_token = "1551145058258153473-utDfnXHO0FX3N1RYKP57AeldcDXZSm"
 access_token_secret = "bOqz0kjpCnhtiRkpYPzVVGwiiZJnQfYMu8z2rbqecPPYh"
@@ -12,16 +12,16 @@ my_api_secret = "sZAEQi4SvFZ9DgUqtRJuay6THNNy6fpLPUVlKE8P47xjs6j37Y"
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
-
-phone_list=["#MKBHD","#TNW" ,"#TechCrunch","#TechRepublic","#Engadget","#ArsTechnica","#WIRED","#GigaOm","#Mashable","#TheVerge",
-"#DigitalTrends"]
+tweets_df = pd.DataFrame()
+phone_list=["#samsung","#xaiomi","#moto","#vivo","#oppo","#iPhone","#redmi","#apple","#asus","#lenovo",
+"#hp","#NarendraModi"]
 for i in phone_list:
     search_query = i
 # get tweets from the API
     tweets = tw.Cursor(api.search_tweets,
                 q=search_query,
                 lang="en",
-                since="2020-09-16").items(50)
+                since="2020-09-16").items(100)
 
 # store the API responses in a list
 
@@ -30,10 +30,10 @@ for i in phone_list:
         tweets_copy.append(tweet)
     
 print("Total Tweets fetched:", len(tweets_copy))
-import pandas as pd
+
 
 # intialize the dataframe
-tweets_df = pd.DataFrame()
+
 
 # populate the dataframe
 for tweet in tweets_copy:
@@ -47,7 +47,7 @@ for tweet in tweets_copy:
     tweets_df = tweets_df.append(pd.DataFrame({
                                                'hashtags': [hashtags if hashtags else None]
                                                }))
-    tweets_df = tweets_df.reset_index(drop=True)
+    # tweets_df = tweets_df.reset_index(drop=True)
 
 # show the dataframe
 # print(tweets_df)

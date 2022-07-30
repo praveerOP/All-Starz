@@ -53,7 +53,8 @@ for tweet in tweets_copy:
 # print(tweets_df)
 print(tweets_df.head())
 tweets_list = []
-print("test ",tweets_df.values[0])
+for i in tweets_df.values:
+    print("test ",i[0])
 # for i in tweets_df.values[0]:
 #     print(tweets_list.extend(i[0]))
 # tweets_list = list(set(tweets_list))

@@ -12,7 +12,7 @@ my_api_secret = "sZAEQi4SvFZ9DgUqtRJuay6THNNy6fpLPUVlKE8P47xjs6j37Y"
 auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
-search_query = "#covid19 -filter:tweets"
+search_query = "#SamsungGalaxy -filter:tweets"
 # get tweets from the API
 tweets = tw.Cursor(api.search_tweets,
               q=search_query,

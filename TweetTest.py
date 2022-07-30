@@ -54,9 +54,22 @@ for tweet in tweets_copy:
 print(tweets_df.head())
 tweets_list = []
 for i in tweets_df.values:
-    print("test ",i[0])
-# for i in tweets_df.values[0]:
-#     print(tweets_list.extend(i[0]))
-# tweets_list = list(set(tweets_list))
-# # # tweet_lis=tweets_df.values.tolist()
-# print (tweets_list)
+    if i[0]!=None:
+       tweets_list.extend(i[0])
+frequency={}
+
+for item in tweets_list:
+       # checking the element in dictionary
+   if item in frequency:
+      # incrementing the counr
+      frequency[item] += 1
+   else:
+      # initializing the count
+      frequency[item] = 1
+
+# printing the frequency
+
+#print (tweets_list)
+
+frequency=dict(sorted(frequency.items(), key=lambda item: item[1]), reverse=True)
+print(frequency)

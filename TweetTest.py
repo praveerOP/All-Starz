@@ -13,7 +13,8 @@ auth = tw.OAuthHandler(my_api_key, my_api_secret)
 api = tw.API(auth, wait_on_rate_limit=True)
 
 
-phone_list=["#MKBHD"]
+phone_list=["#MKBHD","#TNW" ,"#TechCrunch","#TechRepublic","#Engadget","#ArsTechnica","#WIRED","#GigaOm","#Mashable","#TheVerge",
+"#DigitalTrends"]
 for i in phone_list:
     search_query = i
 # get tweets from the API

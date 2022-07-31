@@ -2,7 +2,7 @@ from typing import Union
 from fastapi import FastAPI 
 from Twitter.TweetTest import twitter
 tweets = []
-tweets_lis = twitter()
+tweets_dict = twitter()
 # for i in tweets_df:
 #     print(i)
 # print(tweets_df.head())
@@ -10,7 +10,7 @@ tweets_lis = twitter()
 app = FastAPI()
 @app.get("/")
 def read_root():
-    return {"Hello":tweets_lis }
+    return {"Smartphones":tweets_dict }
 
 
 # @app.get("/items/{item_id}")

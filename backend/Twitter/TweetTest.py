@@ -1,6 +1,7 @@
 # import tweepy
 import tweepy as tw
 import pandas as pd
+
 def twitter():
     # your Twitter API key and API secret
     access_token = "1551145058258153473-utDfnXHO0FX3N1RYKP57AeldcDXZSm"
@@ -12,28 +13,25 @@ def twitter():
     # authenticate
     auth = tw.OAuthHandler(my_api_key, my_api_secret)
     api = tw.API(auth, wait_on_rate_limit=True)
-
-
-    phone_list=["#SmartPhones -filter:tweets","#Electronics -filter:tweets","#SamsungGalaxy -filter:tweets","#Xiaomi -filter:tweets",
-    "#MiNote -filter:tweets"]#VIVO -filter:tweets"]
+    tweets_copy = []
+    tweets_df = pd.DataFrame()
+    phone_list=["#samsung","#xiaomi","#moto","#vivo","#oppo","#iPhone","#redmi","#apple","#asus","#lenovo","#hp"]
     for i in phone_list:
         search_query = i
     # get tweets from the API
         tweets = tw.Cursor(api.search_tweets,
                     q=search_query,
-                    lang="en"
-                    '''since="2020-09-16"''').items(50)
+                    lang="en",
+                    since="2020-09-16").items(20)
 
     # store the API responses in a list
 
-        tweets_copy = []
+        
         for tweet in tweets:
             tweets_copy.append(tweet)
         
     print("Total Tweets fetched:", len(tweets_copy))
     # intialize the dataframe
-    tweets_df = pd.DataFrame()
-
     # populate the dataframe
     for tweet in tweets_copy:
         hashtags = []
@@ -46,12 +44,26 @@ def twitter():
         tweets_df = tweets_df.append(pd.DataFrame({
                                                 'hashtags': [hashtags if hashtags else None]
                                                 }))
-        tweets_df = tweets_df.reset_index(drop=True)
-
+        # tweets_df = tweets_df.reset_index(drop=True)
     # show the dataframe
-    #print(tweets_df)
-    #tweets_df.head()
-
-    tweet_lis=tweets_df.values.tolist()
-    print (tweet_lis)
-    return tweet_lis
+    # print(tweets_df)
+    print(tweets_df.head())
+    tweets_list = []
+    for i in tweets_df.values:
+        if i[0]!=None:
+            tweets_list.extend(i[0])
+    frequency={}
+    for item in tweets_list:
+        # checking the element in dictionary
+        if item in frequency:
+        # incrementing the counr
+            frequency[item] += 1
+        else:
+        # initializing the count
+            frequency[item] = 1
+    # printing the frequency
+    #print (tweets_list)
+    frequency=dict(sorted(frequency.items(), key=lambda item: item[1],reverse=True))
+    print(frequency)
+    return frequency
+twitter();

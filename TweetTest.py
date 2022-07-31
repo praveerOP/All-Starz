@@ -82,7 +82,7 @@ def twitter():
     # print("-----------------------------------------")
     # print("-----------------------------------------")
     print(tweets_newlist)
-    given_list=['realme C11 2021 ', 'realme C11 2021 ', 
+    '''given_list=['realme C11 2021 ', 'realme C11 2021 ', 
     'SAMSUNG Galaxy F22 ', 'SAMSUNG Galaxy F22 ', 'realme C31 ', 'realme C31 ', 'POCO C31 ', 'realme C31 ', 
     'Infinix HOT 12 Play ', 'Infinix HOT 12 Play ', 'Infinix HOT 12 Play ', 'realme C31 ', 'POCO C31 ', 'realme C11 2021 ', 
     'POCO C31 ', 'realme 9', 'Infinix Note 12 ', 'Infinix Hot 11 2022 ', 'SAMSUNG Galaxy F13 ', 
@@ -90,7 +90,62 @@ def twitter():
     'REDMI 9i Sport ', 'realme C20', 'SAMSUNG Galaxy F13 ', 'vivo T1X ', 'vivo T1X ', 
     'vivo T1X ', 'vivo T1X ', 'REDMI 10 ','REDMI 10 ', 'MOTOROLA g31 ', 'REDMI 9i Sport ', 'POCO M4 Pro ',
     'REDMI Note 10 Pro ', 'vivo T1X ', 'realme C21Y ', 'REDMI Note 10T 5G ',
-    'Infinix Hot 11 2022 ', 'OPPO Reno8 5G ', 'OPPO Reno8 5G ', 'realme 9 ', 'REDMI Note 10 Pro ', 'POCO M4 5G ']    
+    'Infinix Hot 11 2022 ', 'OPPO Reno8 5G ', 'OPPO Reno8 5G ', 'realme 9 ', 'REDMI Note 10 Pro ', 'POCO M4 5G ']
+    '''
+
+   
+
+    import requests
+    from bs4 import BeautifulSoup
+    import pandas as pd
+    import urllib.request
+    # from IPython.display import HTML
+    from operator import index
+
+    pro_name = []
+    pro_price = []
+    pro_link = []
+    class_list = set()
+    page_num = input("Enter number of pages")
+    for i in range (1, int(page_num)+1):
+        url = "https://www.flipkart.com/search?q=mobiles&page=" +str(i)
+        req = requests.get(url)
+        content = BeautifulSoup(req.content, 'html.parser')
+        # # get all tags
+        # tags = {tag.name for tag in content.find_all()}
+    
+        # # iterate all tags
+        # for tag in tags:
+        #   # find all element of tag
+        #   for i in content.find_all( tag ):
+    
+        #       # if tag has attribute of class
+        #       if i.has_attr( "class" ):
+    
+        #           if len( i['class'] ) != 0:
+        #               class_list.add(" ".join( i['class']))
+    
+        #   print( class_list )
+        product_name = content.find_all('div', {"class" :"_4rR01T"})
+        product_price = content.find_all('div', {"class" : "_30jeq3 _1_WHN1"})
+        product_rating = content.find_all('div', {"class" : ""})
+        link = content.find_all('a', {"class" : "_1fQZEK"})
+        for tag in link:
+        pro_link.append("https://www.flipkart.com"+tag['href'])
+
+        for i in product_name:
+        pro_name.append(i.text)
+        for i in product_price:
+        pro_price.append(i.text)
+
+    data = ({"Product_name" : pro_name, "Product_price" : pro_price, "Product_link" : pro_link})
+    df = pd.DataFrame.from_dict(data, orient= "index")
+    df = df.transpose()
+    def make_clickable(data):
+        return f'<a target="_blank" href="{data}">{data}</a>'
+
+    df.style.format({'Product_link': make_clickable})
+    
 
 twitter();
 
